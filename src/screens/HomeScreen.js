@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { AiOutlineDelete } from 'react-icons/ai';
+import { FiEdit } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const HomeScreen = () => {
     const [todos, setTodos] = useState([])
@@ -31,18 +33,25 @@ const HomeScreen = () => {
     return (
         <section className="max-w-screen-lg mx-auto py-24 px-6">
             <h1 className="text-3xl text-center pb-4">All Todos</h1>
-            <div className="flex flex-col space-y-3 border border-gray-200 rounded-lg">
+            <div className="flex flex-col space-y-6">
                 {todos?.map((todo) => (
-                    <div className="flex items-center w-full bg-white  border-b border-gray-200 p-4 box-border" key={todo._id}>
-                        <div className="flex flex-grow items-center">
-                            <h1 className="text-2xl font-semibold">{todo.todo}</h1>
-                            <span className="bg-yellow-500 rounded-full px-3 py-1 text-sm relative -top-3">{todo.category}</span>
+                    <div className="flex items-center w-full shadow-lg rounded-lg  border border-gray-200 p-4 box-border bg-white" key={todo._id}>
+                        <div className="flex flex-grow items-center w-96 flex-wrap">
+                            <h1 className="text-xl font-semibold break-all">{todo.todo}</h1>
+                        </div>
+                        {/* category  */}
+                        <div className="flex flex-grow pr-6">
+                            <span className="text-gray-700 text-sm break-all">{todo.description}</span>
+                        </div>
+                        {/* status  */}
+                        <div className="flex flex-grow mr-4 rounded-md">
+                            <p className={`text-center text-white px-3 py-1 rounded-full text-sm ${todo.status === "In Progress" ? "bg-red-600" : "bg-yellow-600"}  ${todo.status === "Done" && "bg-green-700"}`}>{todo.status}</p>
                         </div>
                         <div className="flex space-x-3">
                             <Link to={`/edit/${todo._id}`}>
-                                <button className="px-6 py-3 rounded-lg bg-blue-600 focus:outline-none text-white">Edit</button>
+                                <FiEdit className="cursor-pointer text-green-600 text-2xl" />
                             </Link>
-                            <button className="px-6 py-3 rounded-lg bg-red-700 focus:outline-none text-white" onClick={() => handleDelete(todo._id)}>Delete</button>
+                            <AiOutlineDelete className="cursor-pointer text-2xl text-red-500" onClick={() => handleDelete(todo._id)} />
                         </div>
                     </div>
                 ))}
