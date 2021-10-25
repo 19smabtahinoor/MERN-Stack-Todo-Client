@@ -8,7 +8,7 @@ const EditScreen = () => {
 
     //fetching the data
     useEffect(() => {
-        fetch(`http://localhost:5000/todos/${id}`)
+        fetch(`https://mern-todo-sm.herokuapp.com/todos/${id}`)
             .then(res => res.json())
             .then(data => setTodo(data))
     }, [id])
@@ -38,7 +38,7 @@ const EditScreen = () => {
     //handle edit 
     const handleEditUser = e => {
         e.preventDefault();
-        fetch(`http://localhost:5000/todos/${id}`, {
+        fetch(`https://mern-todo-sm.herokuapp.com/todos/${id}`, {
             method:'PUT',
             headers:{'content-type':'application/json'},
             body:JSON.stringify(todo)

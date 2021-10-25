@@ -13,7 +13,7 @@ console.log(status)
 
         const newTodo = { todo, description, status};
 
-        fetch('http://localhost:5000/todos', {
+        fetch('https://mern-todo-sm.herokuapp.com/todos', {
             method:'POST',
             headers:{'content-type':'application/json'},
             body:JSON.stringify(newTodo)

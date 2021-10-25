@@ -7,7 +7,7 @@ const HomeScreen = () => {
     const [todos, setTodos] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/todos')
+        fetch('https://mern-todo-sm.herokuapp.com/todos')
             .then(res => res.json())
             .then(data => setTodos(data))
     }, [todos])
@@ -16,7 +16,7 @@ const HomeScreen = () => {
     const handleDelete = (id) => {
         const process = window.confirm('Are you sure, Do you want to delete ? ')
         if (process) {
-            fetch(`http://localhost:5000/todos/${id}`, {
+            fetch(`https://mern-todo-sm.herokuapp.com/todos/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
