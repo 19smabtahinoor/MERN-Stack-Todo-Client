@@ -63,7 +63,7 @@ const HomeScreen = () => {
                     <>
                         {todos?.map((todo) => (
                             <div className="flex flex-col lg:flex-row lg:items-center space-y-3 lg:space-y-0 w-full shadow-lg rounded-lg  border border-gray-200 p-4 box-border bg-white" key={todo._id}>
-                                <div className="flex items-center w-96">
+                                <div className="flex items-center flex-wrap w-96">
                                     <h1 className="text-xl font-semibold break-all">{todo.todo}</h1>
                                 </div>
                                 {/* category  */}
