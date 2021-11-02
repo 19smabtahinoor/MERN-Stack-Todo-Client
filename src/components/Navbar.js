@@ -6,11 +6,13 @@ const Navbar = () => {
         <header className="bg-purple-700 py-3">
             <nav className="max-w-screen-lg mx-auto px-6 flex items-center">
                 <div className="flex flex-grow">
-                    <h1 className="text-3xl text-white">AN Todo</h1>
+                    <NavLink to="/" className="flex items-center space-x-2">
+                        <img className="w-12" src="../../assets/logo.png" alt="logo" />
+                        <h1 className="text-3xl text-white">AN Todo</h1>
+                    </NavLink>
                 </div>
                 <div className="flex items-center space-x-3 text-xl text-white">
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/add">Add todo</NavLink>
+                    <NavLink to="/add" className="bg-white px-4 py-2 rounded-lg text-purple-800">Add todo</NavLink>
                 </div>
             </nav>
         </header>
