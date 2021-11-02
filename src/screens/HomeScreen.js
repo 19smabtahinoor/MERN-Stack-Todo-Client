@@ -41,7 +41,7 @@ const HomeScreen = () => {
             <h1 className="text-3xl text-center pb-4">All Todos ({todos.length}) </h1>
 
             {/* headers option  */}
-            <div className="p-4 my-4 box-border rounded-lg border border-gray-200 flex items-center">
+            <div className="p-4 my-4 box-border rounded-lg border border-gray-200 flex flex-col lg:flex-row items-center space-y-3 lg:space-y-0">
                 {/* search  */}
                 <div className="flex flex-grow">
                     <input type="text" placeholder="Search" className="px-6 py-3 border border-gray-200 ring-purple-300 focus:ring-4 focus:outline-none transition duration-300 w-96 rounded-lg" />
@@ -62,12 +62,12 @@ const HomeScreen = () => {
                 {status === 'All' ? (
                     <>
                         {todos?.map((todo) => (
-                            <div className="flex items-center w-full shadow-lg rounded-lg  border border-gray-200 p-4 box-border bg-white" key={todo._id}>
+                            <div className="flex flex-col lg:flex-row lg:items-center space-y-3 lg:space-y-0 w-full shadow-lg rounded-lg  border border-gray-200 p-4 box-border bg-white" key={todo._id}>
                                 <div className="flex items-center w-96">
                                     <h1 className="text-xl font-semibold break-all">{todo.todo}</h1>
                                 </div>
                                 {/* category  */}
-                                <div className="flex flex-grow pr-6 w-24">
+                                <div className="flex flex-grow pr-6 lg:w-24">
                                     <span className="text-gray-700 text-sm break-all">{todo.description}</span>
                                 </div>
                                 {/* status  */}
@@ -86,12 +86,12 @@ const HomeScreen = () => {
                 ) : (
                     <>
                         {todos.filter(item => item.status === status)?.map((todo) => (
-                            <div className="flex items-center w-full shadow-lg rounded-lg  border border-gray-200 p-4 box-border bg-white" key={todo._id}>
+                            <div className="flex flex-col lg:flex-row lg:items-center space-y-3 lg:space-y-0 w-full shadow-lg rounded-lg  border border-gray-200 p-4 box-border bg-white" key={todo._id}>
                                 <div className="flex items-center w-96">
                                     <h1 className="text-xl font-semibold break-all">{todo.todo}</h1>
                                 </div>
                                 {/* category  */}
-                                <div className="flex flex-grow pr-6 w-24">
+                                <div className="flex flex-grow pr-6 lg:w-24">
                                     <span className="text-gray-700 text-sm break-all">{todo.description}</span>
                                 </div>
                                 {/* status  */}
